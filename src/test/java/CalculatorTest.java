@@ -1,8 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.*;
-
 import static org.junit.Assert.*;
 
 public class CalculatorTest {
@@ -10,34 +8,27 @@ public class CalculatorTest {
 
     @Before
     public void before(){
-        result = new Calculator(4, 2, 0.0, 0.0);
+        result = new Calculator();
     }
 
     @Test
     public void getAddNumbers(){
-        assertEquals(6, result.addNumbers());
+        assertEquals(6, result.addNumbers(2, 4));
     }
 
     @Test
     public void getSubtractNumbers(){
-        assertEquals(2, result.subtractNumbers());
+        assertEquals(2, result.subtractNumbers(4, 2));
     }
 
     @Test
     public void getMultipliedNumbers(){
-        assertEquals(8, result.multiplyNumbers());
+        assertEquals(8, result.multiplyNumbers(2, 4));
     }
 
     @Test
     public void getDividedNumbers(){
-        Calculator newResult = new Calculator(20, 10, 0.0, 0.0);
-        assertEquals(2, newResult.divideNumbers());
-    }
-
-    @Test
-    public void getDividedNumbersUsingDoubles(){
-        Calculator newDoublesResult = new Calculator(0, 0, 40.50, 20.15);
-        assertEquals(2.01, newDoublesResult.divideDoubleNumbers(), 0.01);
+        assertEquals(2.01, result.divideNumbers(40.50, 20.15), 0.01);
     }
 
 }
